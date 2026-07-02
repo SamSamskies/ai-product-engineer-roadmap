@@ -12,36 +12,16 @@ Every phase should end with a real project.
 
 ---
 
-# Phase 0 — AI-Assisted Development ⭐
+# Phase 0 — AI-Native Product Development
 
 **Goal:** Become dramatically more productive than a traditional software engineer.
 
-## Cursor
-
 Master:
 
-- Rules
-- Memories
-- Background Agents
-- Agent Mode
-- Planning Mode
-- YOLO Mode
-- Context Management
-- Model Selection
-- Custom Modes
-- MCP Integration
-- Terminal Integration
-- Git Workflows
-
-Also become familiar with:
-
+- Cursor
 - Claude Code
+- Claude Design
 - OpenAI Codex / CLI
-- GitHub Copilot
-
-### Outcome
-
-AI becomes a true pair programmer instead of an autocomplete tool.
 
 ---
 
