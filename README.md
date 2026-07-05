@@ -33,6 +33,7 @@ Master:
 - Claude Code
 - Claude Design
 - OpenAI Codex / CLI
+- [Goose](https://github.com/aaif-goose/goose) — optional; open-source, multi-provider agentic CLI/desktop (also a great agent to study in Phase 7)
 
 These are all **agentic loop** tools. Beyond just using them, pay attention to *how* they run their loops (context, tool calls, verification, when they stop) — it's the best free lesson in loop engineering, which I go deep on in Phase 7.
 
@@ -255,6 +256,18 @@ Framework:
 
 - LangGraph
 
+## Study a Production Agent
+
+Read the source of a real, mature open-source agent to see the concepts above in practice — not just in tutorials:
+
+- [Goose](https://github.com/aaif-goose/goose) — production open-source agent (CLI/desktop/API). Study how it runs its loop, integrates 70+ tools over MCP (ties back to Phase 5), supports multiple providers, and implements ACP.
+
+Stretch goal: land a contribution to Goose. Treat it as aspirational (merges depend on maintainers, not just me) and start small on a surface that plays to my strengths rather than the Rust core:
+
+- The TypeScript/React desktop UI — reinforces Phase 2 (Agent ↔ UI)
+- An MCP extension — reinforces Phase 5
+- Docs or a good-first-issue to learn the contribution workflow
+
 ## Agent ↔ UI
 
 Connect the agent back to the Phase 2 UX work — stream agent state, steps, and tool calls into a real interface:
@@ -416,3 +429,4 @@ Operate as an **AI Product Engineer** capable of designing, building, deploying,
 ## Courses & References
 
 - [Production Agentic RAG course](https://github.com/jamwithai/production-agentic-rag-course) — hands-on, keyword-search-first RAG build; cross-phase capstone (Phases 3, 6, 7, 8, 10)
+- [Goose](https://github.com/aaif-goose/goose) — production open-source AI agent; codebase to study for loop engineering, MCP, and multi-provider design (Phases 5, 7)
