@@ -177,6 +177,10 @@ Projects:
 - Nostr MCP Server
 - Personal MCP Server
 
+Reference:
+
+- [Buzz](https://github.com/block/buzz) — optional; a Nostr-based workspace where agents are first-class members. Useful prior art for the Nostr MCP Server project — see its `buzz-acp` (ACP ↔ MCP bridge) and `buzz-dev-mcp` (shell/file-edit MCP tools). Earlier-stage and more experimental than Goose, so treat as inspiration.
+
 Goal:
 
 Understand how AI connects to external systems.
@@ -261,6 +265,7 @@ Framework:
 Read the source of a real, mature open-source agent to see the concepts above in practice — not just in tutorials:
 
 - [Goose](https://github.com/aaif-goose/goose) — production open-source agent (CLI/desktop/API). Study how it runs its loop, integrates 70+ tools over MCP (ties back to Phase 5), supports multiple providers, and implements ACP.
+- [Buzz](https://github.com/block/buzz) — optional; interesting take on **multi-agent** design and identity-based guardrails (agents are members with their own keypair, channel memberships, and audit trail — scoped by identity, not permission flags).
 
 Stretch goal: land a contribution to Goose. Treat it as aspirational (merges depend on maintainers, not just me) and start small on a surface that plays to my strengths rather than the Rust core:
 
@@ -430,3 +435,4 @@ Operate as an **AI Product Engineer** capable of designing, building, deploying,
 
 - [Production Agentic RAG course](https://github.com/jamwithai/production-agentic-rag-course) — hands-on, keyword-search-first RAG build; cross-phase capstone (Phases 3, 6, 7, 8, 10)
 - [Goose](https://github.com/aaif-goose/goose) — production open-source AI agent; codebase to study for loop engineering, MCP, and multi-provider design (Phases 5, 7)
+- [Buzz](https://github.com/block/buzz) — optional; Nostr-based human+agent workspace; prior art for the Nostr MCP Server and multi-agent/identity guardrails (Phases 5, 7)
