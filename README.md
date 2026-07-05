@@ -34,6 +34,8 @@ Master:
 - Claude Design
 - OpenAI Codex / CLI
 
+These are all **agentic loop** tools. Beyond just using them, pay attention to *how* they run their loops (context, tool calls, verification, when they stop) — it's the best free lesson in loop engineering, which I go deep on in Phase 7.
+
 ---
 
 # Phase 1 — OpenAI Platform
@@ -217,9 +219,20 @@ Topics:
 - Planning
 - Memory
 - Retries
-- Loops
 - State
 - Structured outputs
+
+## Loop Engineering
+
+The agent *is* the loop. This is the core skill of the phase — the successor to prompt engineering. Learn to design the **observe → act → feedback → repeat** cycle:
+
+- The core loop: gather context, act, observe results, decide next step
+- Context management across turns (what to keep, summarize, or compact)
+- Stop conditions — knowing when the loop is done or stuck
+- Error recovery and self-correction within the loop
+- Verification steps (letting the agent check its own work)
+- Delegation to subagents to keep loops focused
+- Token/latency/cost budgets over long-running loops
 
 ## Security & Guardrails
 
@@ -322,8 +335,8 @@ Deploy production AI applications.
 
 Learn to answer questions like:
 
+- Should this be a single call, a workflow, or an agentic loop?
 - Should this be an agent?
-- Should this be a workflow?
 - Should this use RAG?
 - Should I cache?
 - Should I summarize?
