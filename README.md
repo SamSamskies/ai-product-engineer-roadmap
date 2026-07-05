@@ -291,6 +291,10 @@ Database:
 - PostgreSQL
 - pgvector
 
+Reference:
+
+- [Production Agentic RAG course](https://github.com/jamwithai/production-agentic-rag-course) (arXiv Paper Curator) — a hands-on, keyword-search-first build that also doubles as a cross-phase capstone: it reinforces Python/FastAPI (Phase 6), Langfuse monitoring (Phase 3), agentic RAG with LangGraph (Phase 7), and Docker/Redis/SSE (Phase 10). Note: it uses OpenSearch for hybrid search rather than pgvector, so implement the pgvector path separately to hit my stated stack.
+
 Projects:
 
 - Personal knowledge base
@@ -394,3 +398,21 @@ Think like an AI architect rather than an API consumer.
 ## Level 5
 
 Operate as an **AI Product Engineer** capable of designing, building, deploying, evaluating, and maintaining production AI applications end-to-end — with the UX quality and reliability that separate real products from demos.
+
+---
+
+# Resources
+
+## My Learning Records
+
+- [learncursor](https://github.com/SamSamskies/learncursor/tree/main/learning-records) — leveling up Cursor skills (Phase 0)
+- [learnopenai](https://github.com/SamSamskies/learnopenai/tree/main/learning-records) — working through the OpenAI platform (Phase 1)
+
+## Projects
+
+- [habit-tracker](https://github.com/SamSamskies/habit-tracker) — app built while learning Cursor (Phase 0)
+- [locallab](https://github.com/SamSamskies/locallab) — privacy-first, fully-local blood-work analyzer (local LLM via Ollama)
+
+## Courses & References
+
+- [Production Agentic RAG course](https://github.com/jamwithai/production-agentic-rag-course) — hands-on, keyword-search-first RAG build; cross-phase capstone (Phases 3, 6, 7, 8, 10)
