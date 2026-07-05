@@ -82,6 +82,13 @@ Learn:
 - Perceived latency and optimistic updates
 - Citing sources and showing model uncertainty
 
+Tools:
+
+- Vercel AI SDK — foundational for streaming and AI UX in React/Next
+- CopilotKit — in-app copilots, generative UI, and agent↔UI wiring (revisited in Phase 7)
+
+The concepts above matter more than any single library. Treat these as implementations of the patterns, not the point.
+
 Projects:
 
 - A polished streaming chat interface
@@ -247,6 +254,13 @@ Once agents can call tools and act autonomously, safety stops being optional:
 Framework:
 
 - LangGraph
+
+## Agent ↔ UI
+
+Connect the agent back to the Phase 2 UX work — stream agent state, steps, and tool calls into a real interface:
+
+- CopilotKit + AG-UI protocol (LangGraph → UI)
+- Rendering intermediate steps, plans, and human-in-the-loop approvals
 
 Projects:
 
