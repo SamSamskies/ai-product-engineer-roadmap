@@ -152,6 +152,11 @@ Develop intuition for:
 - Gemini
 - DeepSeek
 - Mistral
+- Qwen
+- GLM
+- Llama
+- MiniMax
+- Kimi (Moonshot)
 - xAI models
 
 Goal:
