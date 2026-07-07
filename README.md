@@ -18,6 +18,7 @@ These are **not** phases. They are habits I apply to every project from Phase 1 
 
 - **Evaluation-driven development** — For every project, answer "how do I know this got better?" before shipping a change. Even a handful of hand-written test cases beats vibes. (Formalized in Phase 3.)
 - **Observability & cost** — Track tokens, latency, and $ per request. Log prompts and outputs so failures are debuggable.
+- **Context engineering** — Everything the model sees is a design decision: system prompt, retrieved context, tool results, memory, and prior turns. Deliberately manage what goes into the window — and what gets summarized, compacted, or dropped. This is the successor framing to prompt engineering. (Deep dive in Phase 7.)
 - **Security & guardrails** — Assume untrusted input. Validate model output, scope tool permissions, and watch for prompt injection — especially once tools and agents are involved.
 - **Product UX polish** — Streaming, loading/thinking states, and graceful failure are not optional extras; they're the product. (Deep dive in Phase 2.)
 
@@ -83,9 +84,20 @@ Learn:
 - Perceived latency and optimistic updates
 - Citing sources and showing model uncertainty
 
+## Voice, Realtime & Multimodal
+
+Text is only one surface. Voice and multimodal are one of the fastest-growing product areas — and the UX of a nondeterministic *voice* agent is exactly the kind of hard interface problem my frontend background is built for.
+
+- Speech-to-speech and realtime interaction
+- Interruption / barge-in and turn-taking
+- Partial transcripts and live "thinking" cues (audio + visual)
+- Multimodal I/O — vision input, image and audio output
+- Latency budgets for realtime (where "fast enough" is a hard requirement, not a nicety)
+
 Tools:
 
 - Vercel AI SDK — foundational for streaming and AI UX in React/Next
+- OpenAI Realtime API — speech-to-speech and low-latency voice agents
 - CopilotKit — in-app copilots, generative UI, and agent↔UI wiring (revisited in Phase 7)
 
 The concepts above matter more than any single library. Treat these as implementations of the patterns, not the point.
@@ -172,6 +184,7 @@ Learn:
 - Servers
 - Authentication
 - Tool discovery
+- A2A (Agent-to-Agent) protocol — the emerging companion to MCP. MCP connects agents to *tools*; A2A connects agents to *each other*. Revisited for multi-agent work in Phase 7.
 
 Projects:
 
@@ -232,21 +245,24 @@ Topics:
 
 - Tool calling
 - Planning
-- Memory
+- Memory — short-term (in-context) vs. persistent, cross-session memory; memory tooling like mem0 and Letta/MemGPT. Memory is becoming a first-class product feature, not just an implementation detail.
 - Retries
 - State
 - Structured outputs
+- Computer use & browser agents — agents that operate a screen/browser; their own failure modes and guardrail needs
+- Agent skills — composable, progressively-disclosed capabilities (the pattern behind Claude Skills) for structuring what an agent knows how to do
 
 ## Loop Engineering
 
 The agent *is* the loop. This is the core skill of the phase — the successor to prompt engineering. Learn to design the **observe → act → feedback → repeat** cycle:
 
 - The core loop: gather context, act, observe results, decide next step
-- Context management across turns (what to keep, summarize, or compact)
+- Context management across turns (what to keep, summarize, or compact) — this is where the **context engineering** thread goes deep
 - Stop conditions — knowing when the loop is done or stuck
 - Error recovery and self-correction within the loop
 - Verification steps (letting the agent check its own work)
 - Delegation to subagents to keep loops focused
+- Multi-agent & agent-to-agent interop (A2A protocol) — connecting agents to each other, ties back to Phase 5's MCP
 - Token/latency/cost budgets over long-running loops
 
 ## Security & Guardrails
@@ -259,9 +275,14 @@ Once agents can call tools and act autonomously, safety stops being optional:
 - Human-in-the-loop for destructive actions
 - PII and secrets handling
 
-Framework:
+Frameworks:
 
-- LangGraph
+- LangGraph — the one to go deep on
+- OpenAI Agents SDK — builds directly on my Phase 1 investment
+- Pydantic AI — pairs with the Phase 6 Pydantic/FastAPI stack
+- Mastra — TS-native; lets me do agent work without leaving my native language
+
+Go deep on LangGraph, but stay literate in the others and know why I'd reach for each. Concepts transfer; frameworks are interchangeable.
 
 ## Study a Production Agent
 
@@ -306,6 +327,10 @@ Learn:
 - Re-ranking
 - Metadata
 - Retrieval evaluation (apply the Phase 3 eval skills here)
+
+Note:
+
+With 1M+ token context windows and agentic search, RAG is increasingly *agentic retrieval* — the agent decides what to fetch, when — rather than a fixed embed-and-retrieve pipeline. Learn the fundamentals, but treat retrieval as a tool the agent calls, not always a separate system bolted on the front.
 
 Database:
 
@@ -363,6 +388,7 @@ Learn:
 - Streaming
 - Server-Sent Events
 - WebSockets
+- WebRTC & realtime audio transport — the plumbing behind the voice/realtime UX from Phase 2 (low-latency bidirectional streams)
 
 Goal:
 
