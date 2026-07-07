@@ -57,7 +57,7 @@ Become an expert in:
 Projects:
 
 - AI coding assistant
-- Research assistant
+- [Research assistant](https://github.com/SamSamskies/learnopenai/tree/main/research-assistant)
 - Calendar assistant
 - GitHub assistant
 - Multi-step planner
@@ -92,9 +92,7 @@ The concepts above matter more than any single library. Treat these as implement
 
 Projects:
 
-- A polished streaming chat interface
-- A human-in-the-loop tool-approval flow
-- Retrofit better UX onto an earlier Phase 1 project
+- [research-assistant](https://github.com/SamSamskies/learnopenai/tree/main/research-assistant) — continue the Phase 1 app; retrofit polished streaming UX, loading/thinking states, graceful failure, and human-in-the-loop patterns
 
 Goal:
 
@@ -430,10 +428,12 @@ Operate as an **AI Product Engineer** capable of designing, building, deploying,
 
 - [learncursor](https://github.com/SamSamskies/learncursor/tree/main/learning-records) — leveling up Cursor skills (Phase 0)
 - [learnopenai](https://github.com/SamSamskies/learnopenai/tree/main/learning-records) — working through the OpenAI platform (Phase 1)
+- [learn-ai-ux](https://github.com/SamSamskies/learn-ai-ux/tree/main/learning-records) — AI product UX & interaction design (Phase 2)
 
 ## Projects
 
 - [habit-tracker](https://github.com/SamSamskies/habit-tracker) — app built while learning Cursor (Phase 0)
+- [research-assistant](https://github.com/SamSamskies/learnopenai/tree/main/research-assistant) — Vercel AI SDK + Next.js research assistant; started in Phase 1, continued in Phase 2 for AI UX polish
 - [locallab](https://github.com/SamSamskies/locallab) — privacy-first, fully-local blood-work analyzer (local LLM via Ollama)
 
 ## Courses & References
