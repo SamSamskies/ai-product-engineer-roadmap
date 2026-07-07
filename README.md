@@ -29,7 +29,7 @@ These are **not** phases. They are habits I apply to every project from Phase 1 
 
 Master:
 
-- Cursor
+- [Cursor](https://github.com/SamSamskies/learncursor)
 - Claude Code
 - Claude Design
 - OpenAI Codex / CLI
