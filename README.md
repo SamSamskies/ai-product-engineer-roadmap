@@ -20,6 +20,7 @@ These are **not** phases. They are habits I apply to every project from Phase 1 
 - **Observability & cost** — Track tokens, latency, and $ per request. Log prompts and outputs so failures are debuggable.
 - **Context engineering** — Everything the model sees is a design decision: system prompt, retrieved context, tool results, memory, and prior turns. Deliberately manage what goes into the window — and what gets summarized, compacted, or dropped. This is the successor framing to prompt engineering. (Deep dive in Phase 7.)
 - **Security & guardrails** — Assume untrusted input. Validate model output, scope tool permissions, and watch for prompt injection — especially once tools and agents are involved.
+- **Privacy & payment models** — Bearer-token auth (Cashu eCash), pay-per-request vs subscriptions, and no-PII access patterns. Log $/request and compare centralized APIs vs decentralized routers vs local inference. (Deep dive in Phase 4.)
 - **Product UX polish** — Streaming, loading/thinking states, and graceful failure are not optional extras; they're the product. (Deep dive in Phase 2.)
 
 ---
@@ -155,6 +156,28 @@ Learn:
 - Provider switching
 - Benchmarking models
 
+## Routstr
+
+The decentralized, privacy-first counterpart to OpenRouter — same OpenAI-compatible client, different architecture: Nostr relay discovery, Cashu/Lightning micropayments, no accounts or KYC.
+
+Learn:
+
+- Drop-in provider swap (`base_url` + Cashu bearer token as API key)
+- Pay-per-request cost tracking (ties into the observability thread)
+- Nostr-based provider discovery
+- When permissionless routing beats centralized APIs
+
+Tools:
+
+- [Routstr Chat](https://github.com/Routstr/routstr-chat) — production Next.js chat client; study how it wires streaming UI, wallet flows, and model selection to the Routstr protocol
+- [Routstr Platform](https://routstr.com/) — top up, generate API keys, browse models
+
+Projects:
+
+- Swap an earlier app (e.g. research-assistant) to `api.routstr.com/v1` and benchmark latency, cost, and availability vs OpenRouter/OpenAI using Phase 3 evals
+
+Stretch goal: contribute to [routstr-chat](https://github.com/Routstr/routstr-chat). The stack (Next.js, React, TypeScript, Tailwind, Zustand, TanStack Query) plays directly to my frontend background — start with UX bugs, streaming polish, or wallet/settings flows rather than the Rust proxy core. Good on-ramps: chat history search, attachment limits, theme/settings fixes, graceful error states (413/payload-too-large already has MSW mocks to build against).
+
 Develop intuition for:
 
 - GPT
@@ -190,11 +213,12 @@ Projects:
 
 - GitHub MCP Server
 - PostgreSQL MCP Server
-- Nostr MCP Server
+- Nostr MCP Server — Routstr uses Nostr relays for provider discovery; building this while using Routstr in Phase 4 ties Nostr + inference + tools together
 - Personal MCP Server
 
 Reference:
 
+- [Routstr](https://routstr.com/) — see how Nostr relay discovery routes inference requests in a real protocol (pairs with the Nostr MCP Server project)
 - [Buzz](https://github.com/block/buzz) — optional; a Nostr-based workspace where agents are first-class members. Useful prior art for the Nostr MCP Server project — see its `buzz-acp` (ACP ↔ MCP bridge) and `buzz-dev-mcp` (shell/file-edit MCP tools). Earlier-stage and more experimental than Goose, so treat as inspiration.
 
 Goal:
@@ -426,7 +450,7 @@ Think like an AI architect rather than an API consumer.
 
 ## Level 2
 
-- Comfortable across multiple model providers
+- Comfortable across multiple model providers (including decentralized routing via Routstr)
 - Evaluation pipelines as a default habit
 - Built and consumed MCP servers
 - Shipped multiple AI products
@@ -464,6 +488,8 @@ Operate as an **AI Product Engineer** capable of designing, building, deploying,
 
 ## Courses & References
 
+- [Routstr](https://routstr.com/) — decentralized OpenAI-compatible inference router; Cashu micropayments, Nostr discovery, no accounts (Phase 4)
+- [routstr-chat](https://github.com/Routstr/routstr-chat) — Next.js chat client for the Routstr protocol; contribution target and reference implementation for streaming AI UX + wallet flows (Phases 2, 4)
 - [Production Agentic RAG course](https://github.com/jamwithai/production-agentic-rag-course) — hands-on, keyword-search-first RAG build; cross-phase capstone (Phases 3, 6, 7, 8, 10)
 - [Goose](https://github.com/aaif-goose/goose) — production open-source AI agent; codebase to study for loop engineering, MCP, and multi-provider design (Phases 5, 7)
 - [Buzz](https://github.com/block/buzz) — optional; Nostr-based human+agent workspace; prior art for the Nostr MCP Server and multi-agent/identity guardrails (Phases 5, 7)
