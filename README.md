@@ -479,6 +479,7 @@ Operate as an **AI Product Engineer** capable of designing, building, deploying,
 - [learncursor](https://github.com/SamSamskies/learncursor/tree/main/learning-records) — leveling up Cursor skills (Phase 0)
 - [learnopenai](https://github.com/SamSamskies/learnopenai/tree/main/learning-records) — working through the OpenAI platform (Phase 1)
 - [learn-ai-ux](https://github.com/SamSamskies/learn-ai-ux/tree/main/learning-records) — AI product UX & interaction design (Phase 2)
+- [learn-evals](https://github.com/SamSamskies/learn-evals/tree/main/learning-records) — learning evals (Phase 3)
 
 ## Projects
 
