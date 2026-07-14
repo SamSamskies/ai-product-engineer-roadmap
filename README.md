@@ -17,7 +17,7 @@ Every phase should end with a real project.
 These are **not** phases. They are habits I apply to every project from Phase 1 onward. The numbered phases below are where I go deep on each; these threads are how I keep each project honest in the meantime.
 
 - **Evaluation-driven development** — For every project, answer "how do I know this got better?" before shipping a change. Even a handful of hand-written test cases beats vibes. (Formalized in Phase 3.)
-- **Observability & cost** — Track tokens, latency, and $ per request. Log prompts and outputs so failures are debuggable.
+- **Observability & cost** — Track tokens, latency, and $ per request. Log prompts and outputs so failures are debuggable. (Deep dive in Phase 10.)
 - **Context engineering** — Everything the model sees is a design decision: system prompt, retrieved context, tool results, memory, and prior turns. Deliberately manage what goes into the window — and what gets summarized, compacted, or dropped. This is the successor framing to prompt engineering. (Deep dive in Phase 7.)
 - **Security & guardrails** — Assume untrusted input. Validate model output, scope tool permissions, and watch for prompt injection — especially once tools and agents are involved.
 - **Privacy & payment models** — Bearer-token auth (Cashu eCash), pay-per-request vs subscriptions, and no-PII access patterns. Log $/request and compare centralized APIs vs decentralized routers vs local inference. (Deep dive in Phase 4.)
@@ -125,10 +125,11 @@ Learn:
 - LLM-as-a-judge
 - AI evaluation workflows
 
-Tools:
+The concepts matter more than any SaaS. A thin local harness (golden JSON + scripts/pytest, optionally an Ollama judge) is enough to practice everything above — and it's the right fit when the app itself must stay local (e.g. locallab). Cloud eval platforms (LangSmith, etc.) are optional later for non-local products; don't let them gate this phase.
 
-- LangSmith
-- Langfuse
+Projects:
+
+- [locallab](https://github.com/SamSamskies/locallab) — add a local eval suite (golden cases + regression runs against Ollama); keep all data on-machine
 
 Goal:
 
@@ -363,7 +364,7 @@ Database:
 
 Reference:
 
-- [Production Agentic RAG course](https://github.com/jamwithai/production-agentic-rag-course) (arXiv Paper Curator) — a hands-on, keyword-search-first build that also doubles as a cross-phase capstone: it reinforces Python/FastAPI (Phase 6), Langfuse monitoring (Phase 3), agentic RAG with LangGraph (Phase 7), and Docker/Redis/SSE (Phase 10). Note: it uses OpenSearch for hybrid search rather than pgvector, so implement the pgvector path separately to hit my stated stack.
+- [Production Agentic RAG course](https://github.com/jamwithai/production-agentic-rag-course) (arXiv Paper Curator) — a hands-on, keyword-search-first build that also doubles as a cross-phase capstone: it reinforces Python/FastAPI (Phase 6), agentic RAG with LangGraph (Phase 7), and Docker/Redis/SSE + Langfuse monitoring (Phase 10). Note: it uses OpenSearch for hybrid search rather than pgvector, so implement the pgvector path separately to hit my stated stack.
 
 Projects:
 
@@ -401,7 +402,7 @@ Know when local models are the right choice.
 
 ---
 
-# Phase 10 — Infrastructure
+# Phase 10 — Infrastructure & Observability
 
 Learn:
 
@@ -414,9 +415,29 @@ Learn:
 - WebSockets
 - WebRTC & realtime audio transport — the plumbing behind the voice/realtime UX from Phase 2 (low-latency bidirectional streams)
 
+## Observability & Cost
+
+Formalizes the observability thread. By now apps have multi-step traces (agents, tools, RAG) worth instrumenting — not just single-call logs from Phase 1–3.
+
+Learn:
+
+- Tracing and span structure (LLM calls, tool calls, retrieval steps)
+- Prompt/output logging for debugging failures
+- Token, latency, and $ per request — dashboards and budgets
+- Connecting production traces back to Phase 3 evals (failed traces → golden dataset cases)
+
+Tools:
+
+- Langfuse — open-source LLM observability (tracing, cost, prompt management); self-hostable when data must stay local
+- LangSmith — optional; fine for cloud-hosted products, not a fit when prompts/outputs can't leave the machine
+
+Projects:
+
+- Instrument an earlier app (e.g. research-assistant or a Phase 7 agent) end-to-end: traces, cost/latency dashboards, and a loop that promotes interesting failures into eval cases. Prefer Langfuse (or a local harness) over LangSmith when the app is privacy-first / local-only.
+
 Goal:
 
-Deploy production AI applications.
+Deploy production AI applications — and see what they're doing once they are live.
 
 ---
 
@@ -464,7 +485,7 @@ Think like an AI architect rather than an API consumer.
 ## Level 4
 
 - Built production AI agents with guardrails
-- Comfortable deploying AI infrastructure
+- Comfortable deploying AI infrastructure and observability
 
 ## Level 5
 
@@ -491,6 +512,6 @@ Operate as an **AI Product Engineer** capable of designing, building, deploying,
 
 - [Routstr](https://routstr.com/) — decentralized OpenAI-compatible inference router; Cashu micropayments, Nostr discovery, no accounts (Phase 4)
 - [routstr-chat](https://github.com/Routstr/routstr-chat) — Next.js chat client for the Routstr protocol; contribution target and reference implementation for streaming AI UX + wallet flows (Phases 2, 4)
-- [Production Agentic RAG course](https://github.com/jamwithai/production-agentic-rag-course) — hands-on, keyword-search-first RAG build; cross-phase capstone (Phases 3, 6, 7, 8, 10)
+- [Production Agentic RAG course](https://github.com/jamwithai/production-agentic-rag-course) — hands-on, keyword-search-first RAG build; cross-phase capstone (Phases 6, 7, 8, 10)
 - [Goose](https://github.com/aaif-goose/goose) — production open-source AI agent; codebase to study for loop engineering, MCP, and multi-provider design (Phases 5, 7)
 - [Buzz](https://github.com/block/buzz) — optional; Nostr-based human+agent workspace; prior art for the Nostr MCP Server and multi-agent/identity guardrails (Phases 5, 7)
