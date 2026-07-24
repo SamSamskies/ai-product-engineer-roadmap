@@ -38,11 +38,12 @@ Master:
 
 - [Cursor](https://github.com/SamSamskies/learncursor)
 - Claude Code
-- Claude Design
 - OpenAI Codex / CLI
 - [Goose](https://github.com/aaif-goose/goose) — optional; open-source, multi-provider agentic CLI/desktop (also a great agent to study in Phase 7)
 
 These are all **agentic loop** tools. Beyond just using them, pay attention to *how* they run their loops (context, tool calls, verification, when they stop) — it's the best free lesson in loop engineering, which I go deep on in Phase 7.
+
+Optional adjacent: [Claude Design](https://claude.com/product/design) — visual/prototyping surface, not an agentic coding loop; useful for product UX exploration (pairs with Phase 2).
 
 ## Project Harness Files
 
@@ -314,7 +315,7 @@ Topics:
 
 - Tool calling
 - Planning
-- Memory — short-term (in-context) vs. persistent, cross-session memory; memory tooling like mem0 and Letta/MemGPT. Memory is becoming a first-class product feature, not just an implementation detail.
+- Memory — short-term (in-context) vs. persistent, cross-session memory; memory tooling like mem0 and Letta. Memory is becoming a first-class product feature, not just an implementation detail.
 - Retries
 - State
 - Structured outputs
@@ -437,9 +438,10 @@ Strategic for cost, privacy, and offline — open/local reasoning models have cl
 
 Learn:
 
-- Ollama
-- Hugging Face
-- vLLM
+- Ollama — default local runtime for prototyping
+- vLLM — production multi-user serving on GPUs
+- MLX — optional; Apple Silicon–native inference when on a Mac
+- Hugging Face Hub — where open models live (download/browse), not a runtime itself
 
 Understand:
 
