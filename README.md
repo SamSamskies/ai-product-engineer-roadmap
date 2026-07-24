@@ -406,6 +406,8 @@ Note:
 
 With 1M+ token context windows and agentic search, RAG is increasingly *agentic retrieval* — the agent decides what to fetch, when — rather than a fixed embed-and-retrieve pipeline. Learn the fundamentals, but treat retrieval as a tool the agent calls, not always a separate system bolted on the front.
 
+Also learn **vectorless / reasoning-based retrieval** (e.g. [PageIndex](https://github.com/VectifyAI/PageIndex)): hierarchical tree index + LLM tree search when document structure and true relevance beat embedding similarity — no chunking or vector DB. Stretch for the PDF assistant project when vector RAG fails on long professional docs.
+
 Database:
 
 - PostgreSQL
@@ -414,6 +416,7 @@ Database:
 Reference:
 
 - [Production Agentic RAG course](https://github.com/jamwithai/production-agentic-rag-course) (arXiv Paper Curator) — a hands-on, keyword-search-first build that also doubles as a cross-phase capstone: it reinforces Python/FastAPI (Phase 6), agentic RAG with LangGraph (Phase 7), and Docker/Redis/SSE + Langfuse monitoring (Phase 10). Note: it uses OpenSearch for hybrid search rather than pgvector, so implement the pgvector path separately to hit my stated stack.
+- [PageIndex](https://github.com/VectifyAI/PageIndex) — vectorless, reasoning-based RAG; tree index + LLM tree search (no vector DB / chunking). Useful contrast when long professional docs break similarity search.
 
 Projects:
 
@@ -499,7 +502,7 @@ Learn to answer questions like:
 - Should this be a single call, a workflow, or an agentic loop?
 - Would a reasoning model make a multi-step agent unnecessary?
 - Should this be an agent?
-- Should this use RAG (vector, hybrid, graph, or agentic retrieval)?
+- Should this use RAG (vector, hybrid, graph, agentic, or vectorless / reasoning-based retrieval)?
 - Should I cache?
 - Should I summarize / compact context?
 - Should I fine-tune? (Last resort — prefer prompt/context, RAG, routing, and evals first.)
@@ -566,5 +569,6 @@ Operate as an **AI Product Engineer** capable of designing, building, deploying,
 - [Routstr](https://routstr.com/) — decentralized OpenAI-compatible inference router; Cashu micropayments, Nostr discovery, no accounts (Phase 4)
 - [routstr-chat](https://github.com/Routstr/routstr-chat) — Next.js chat client for the Routstr protocol; contribution target and reference implementation for streaming AI UX + wallet flows (Phases 2, 4)
 - [Production Agentic RAG course](https://github.com/jamwithai/production-agentic-rag-course) — hands-on, keyword-search-first RAG build; cross-phase capstone (Phases 6, 7, 8, 10)
+- [PageIndex](https://github.com/VectifyAI/PageIndex) — vectorless, reasoning-based RAG; tree index + LLM tree search as a contrast to vector RAG (Phase 8)
 - [Goose](https://github.com/aaif-goose/goose) — production open-source AI agent; codebase to study for harness/loop engineering, MCP, and multi-provider design (Phases 5, 7)
 - [Buzz](https://github.com/block/buzz) — optional; Nostr-based human+agent workspace; prior art for the Nostr MCP Server and multi-agent/identity guardrails (Phases 5, 7)
